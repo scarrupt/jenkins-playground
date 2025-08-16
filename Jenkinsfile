@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        docker { image 'ubi9/openjdk-21:latest' }
+        docker {
+            image 'registry.access.redhat.com/ubi9/openjdk-21'
+        }
     }
     stages {
         stage('Build') {
