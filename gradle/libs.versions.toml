@@ -7,6 +7,8 @@ junit-jupiter = "5.12.1"
 testcontainers = "1.21.3"
 hazelcast = "5.5.0"
 assertj= "3.27.4"
+logback = "1.5.18"
+slf4j = "2.0.17"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
@@ -14,3 +16,6 @@ junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "jun
 hazelcast = { module = "com.hazelcast:hazelcast", version.ref = "hazelcast" }
 testcontainers = { module = "org.testcontainers:testcontainers", version.ref = "testcontainers" }
 assertj = { module = "org.assertj:assertj-core", version.ref ="assertj" }
+logback-core = { module = "ch.qos.logback:logback-core", version.ref ="logback" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref ="logback" }
+slfj4 = { module = "'org.slf4j:slf4j-api'", version.ref ="slf4j" }

@@ -21,6 +21,9 @@ dependencies {
     testImplementation(libs.hazelcast)
     testImplementation(libs.testcontainers)
     testImplementation(libs.assertj)
+    testImplementation(libs.logback.core)
+    testImplementation(libs.logback.classic)
+    testImplementation(libs.slfj4)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
