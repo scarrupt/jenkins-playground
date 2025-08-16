@@ -8,6 +8,7 @@ import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.testcontainers.DockerClientFactory;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.utility.DockerImageName;
@@ -30,7 +31,9 @@ class AppTest {
     private static final int DEFAULT_EXPOSED_PORT = 5701;
 
     @Test void appHasAGreeting() {
-        Network network = Network.newNetwork();
+        Network network = Network.builder().createNetworkCmdModifier(
+                createNetworkCmd -> DockerClientFactory.instance().client().createNetworkCmd()
+                        .withName("testcontainers")).build();
         try (
                 GenericContainer<?> container = new GenericContainer<>(parse(HZ_IMAGE_NAME))
                         .withExposedPorts(DEFAULT_EXPOSED_PORT)
