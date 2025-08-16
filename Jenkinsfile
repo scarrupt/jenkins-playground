@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'node:latest' }
+        docker { image 'ubi9/openjdk-21:latest' }
     }
     stages {
-        stage('Verify Docker Integration') {
+        stage('Build') {
             steps {
-                sh 'node --version'
+                sh './gradlew clean build'
             }
         }
     }
