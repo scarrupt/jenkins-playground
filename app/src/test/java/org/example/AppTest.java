@@ -31,9 +31,7 @@ class AppTest {
     private static final int DEFAULT_EXPOSED_PORT = 5701;
 
     @Test void appHasAGreeting() {
-        Network network = Network.builder().createNetworkCmdModifier(
-                createNetworkCmd -> DockerClientFactory.instance().client().createNetworkCmd()
-                        .withName("testcontainers")).build();
+        Network network = Network.newNetwork();
         try (
                 GenericContainer<?> container = new GenericContainer<>(parse(HZ_IMAGE_NAME))
                         .withExposedPorts(DEFAULT_EXPOSED_PORT)
